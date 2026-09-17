@@ -1,0 +1,24 @@
+{
+  "name": "appqore-policies-for-hierarchy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "commander": "^9.4.0",
+    "fs": "^0.0.1-security",
+    "moment": "^2.29.4",
+    "node-fetch": "^3.3.0",
+    "pg": "^8.8.0",
+    "qs": "^6.11.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
+}
