@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import axios from "axios";
+import "dotenv/config";
 import fs from "fs";
 
 /**
@@ -8,18 +9,22 @@ import fs from "fs";
  */
 const main = async () => {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+  const apiKey = process.env.DISCO_API_KEY;
 
   try {
+    if (!apiKey) {
+      throw new Error("Missing DISCO_API_KEY environment variable.");
+    }
 
-    const formattedJson = { body: JSON.parse(fs.readFileSync("NP20BBF047.json")) };
+    const formattedJson = { body: JSON.parse(fs.readFileSync("NP20BBG047.json")) };
 
     await axios.put(
       "https://agentdev.nglic.com/api/disco/upload",
       formattedJson,
       {
         headers: {
-          "x-api-key": "",
-          "Policy-Number": "NP20BBF047",
+          "x-api-key": apiKey,
+          "Policy-Number": "NP20BBH047",
           "Content-Type": "application/json"
         },
         timeout: 5000,
