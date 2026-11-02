@@ -34,7 +34,7 @@ const getPoliciesFromAppQore = async (baseUrl, workflowId, authToken) => {
   try {
     while (keepGoing) {
       const result = await sendUnqorkApiGetRequest(
-        `${baseUrl}/workflows/${workflowId}/submissions?filter=data.drpProduct=\"Precoa-Carriage\"&offset=${offset}&limit=${PAGE_SIZE}&dataFields=numPolicynumber,drpProduct,drpProductPrecoa,drpProductPreneed,plan,PRODUCT,radAnnuity,radTerminal,hdnProductCode,hdnPayPeriod,hdnDisposition,drpState,agentCompanyProducerID,dateDateofBirth,appStatus,agentTPMBranchCode,agentCompanyProducerID,FuneralHomePINID,hdnAgentName,stxtTempName,hdnTemplateSharedByUserNameID,created&sortBy=created&sortOrder=-1`,
+        `${baseUrl}/workflows/${workflowId}/submissions?filter=data.drpProduct=\"Precoa\"&offset=${offset}&limit=${PAGE_SIZE}&dataFields=numPolicynumber,drpProduct,drpProductPrecoa,drpProductPreneed,plan,PRODUCT,radAnnuity,radTerminal,hdnProductCode,hdnPayPeriod,hdnDisposition,drpState,agentCompanyProducerID,dateDateofBirth,appStatus,agentTPMBranchCode,agentCompanyProducerID,FuneralHomePINID,hdnAgentName,stxtTempName,hdnTemplateSharedByUserNameID,created&sortBy=created&sortOrder=-1`,
         authToken
       );
       results.push.apply(results, result);
@@ -43,7 +43,10 @@ const getPoliciesFromAppQore = async (baseUrl, workflowId, authToken) => {
       if (result.length < PAGE_SIZE) {
         keepGoing = false;
       }
+      console.log(offset);
+
     }
+
   } catch (ex) {
     console.error(ex);
   }

@@ -59,12 +59,11 @@ const main = async () => {
 const getHierarchyData = async (host, queryString, apiKey) => {
   const response =  await axios
     .get(
-      `https://${host}/api/hierarchy/hierarchyPlanData?${queryString}`,
+      `https://${host}/hierarchy/hierarchyPlanData?${queryString}`,
       {
         headers: {
           "x-api-key": apiKey,
-          Accept: "application/x-www-form-urlencoded",
-          "Content-Type": "application/x-www-form-urlencoded",
+          Accept: "application/x-www-form-urlencoded"
         },
       }
     );
