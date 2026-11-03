@@ -49,6 +49,7 @@ const main = async () => {
     }
 
     fs.writeFileSync(options.outputFile, `Out of ${policies.length}, ${hierarchyFoundCounter} hierarchies were found`, { flag: 'a' });
+    console.log(options.host.toUpperCase())
     console.log(`Out of ${policies.length}, ${hierarchyFoundCounter} hierarchies were found`)
 
   } catch (err) {
